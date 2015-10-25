@@ -2,7 +2,11 @@
 var mongoose = require('mongoose');
 
 // Configure conenction URL (only needs to happen once per app)
-mongoose.connect('CHANGEME');
+mongoose.connect('mongodb://node:node@ds042138.mongolab.com:42138/nodetut');
+//mongoose.connect('mongodb://node:node@ds042138.mongolab.com:42138/nodetut');
+
+
+//mongoose.connect('CHANGETHIS');
 
 // Create a database schema for our Post object, which will describe both it's
 // data and it's behavior.

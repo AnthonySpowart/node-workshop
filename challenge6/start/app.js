@@ -1,4 +1,4 @@
-var express = require('express'), 
+var express = require('express'),
     http = require('http'),
     path = require('path'),
     browserify = require('browserify-middleware');
@@ -16,6 +16,7 @@ app.configure('development', function() {
 
 // Configure Browserify middleware
 var browserifySrc = path.join(process.cwd(), 'browser.js');
+app.use('/middleware.js', browserify(browserifySrc));
 // TODO: How do you use browserify-middleware to create
 // the "/middleware.js" file for the browser?
 

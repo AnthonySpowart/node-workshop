@@ -1,5 +1,5 @@
-var express = require('express'), 
-    http = require('http'), 
+var express = require('express'),
+    http = require('http'),
     path = require('path'),
     Post = require('./Post');
 
@@ -25,7 +25,7 @@ app.configure('development', function() {
 app.get('/', function(request, response) {
 
     // TODO: How do we get a list of all model objects using a mongoose model?
-    Post.CHANGEME(function(err, posts) {
+    Post.find(function(err, posts) {
         if (err) {
             response.send(500, 'There was an error - tough luck.');
         }
@@ -45,10 +45,10 @@ app.get('/new', function(request, response) {
 // create a new blog post object
 app.post('/create', function(request, response) {
     // TODO: Create and save a Post model
-    var post = CHANGEME();
+    var post = new Post({ title: request.body.title, content: request.body.content });
 
     // TODO: Save the model
-    post.CHANGEME(function(err, model) {
+    post.save(function(err, model) {
         if (err) {
             response.send(500, 'There was an error - tough luck.');
         }
